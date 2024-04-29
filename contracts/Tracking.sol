@@ -98,4 +98,13 @@ contract Tracking {
         emit ShipmentDelivered(_sender, _receiver, shipment.deliveryTime);
         emit ShipmentPaid(_sender, _receiver, amount);
     }
+
+    function getShipment(address _sender, uint256 _index) public view returns (address, address, uint256, uint256, uint256, uint256, ShipmentStatus, bool) {
+        Shipment memory shipment = shipments[_sender][_index];
+        return (shipment.sender, shipment.receiver, shipment.pickupTime, shipment.deliveryTime, shipment.distance, shipment.price, shipment.status, shipment.isPaid);
+    }
+
+    function getShipmentCount(address _sender) public view returns (uint256) {
+        return shipments[_sender].length;
+    }
 }
