@@ -58,4 +58,19 @@ contract Tracking {
 
         emit ShipmentCreated(msg.sender, _receiver, _pickupTime, _distance, _price);
     }
+
+
+    function startShipment(address _sender, address _receiver, uint256 _index) public {
+        Shipment storage shipment = shipments[_sender][_index];
+        TypeShipment storage typeShipment = typeShipments[_index];
+
+        require(shipment.receiver == _receiver, "Invalid receiver");
+        require(shipment.status == ShipmentStatus.PENDING, "Shipment already in Transit.");
+
+        shipment.status = ShipmentStatus.INTRANSIT;
+        typeShipment.status = ShipmentStatus.INTRANSIT;
+
+        emit ShipmentInTransit(_sender, _receiver, shipment.pickupTime);
+
+    }
 }
