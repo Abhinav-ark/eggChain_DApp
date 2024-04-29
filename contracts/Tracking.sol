@@ -107,4 +107,9 @@ contract Tracking {
     function getShipmentCount(address _sender) public view returns (uint256) {
         return shipments[_sender].length;
     }
+
+    function getAllTransactions() public view returns (TypeShipment[] memory) {
+        return typeShipments;
+    }
+
 }
