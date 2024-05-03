@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCoontext } from "react";
+"use client";
+import React, { useState, useEffect, useContext } from "react";
 
 //INTERNAL IMPORT
 import {
@@ -9,8 +10,8 @@ import {
   CompleteShipment,
   GetShipment,
   StartShipment,
-  } from "../Components/Page";
-  import { TrackingContext } from "../Context/TrackingContext";
+  } from "./_components";
+  import { TrackingContext } from "../../context/TrackingContext";
 
 
 const Page = () => {
@@ -30,16 +31,16 @@ const Page = () => {
     const [openProfile, setOpenProfile] = useState(false);
     const [startModal, setStartModal] = useState(false);
     const [completeModal, setCompleteModal] = useState(false);
-    const [getModel, setGetModet] = useState(false);
+    const [getModel, setGetModel] = useState(false);
     //DATA STATE VARIABLE
     const [allShipmentsdata, setallShipmentsdata] = useState();
   
     useEffect(() => {
-      const getCampaignsData = getAltShipment() ;
+      const getCampaignsData = getAllShipment() ;
       
       return async () => {
         const allData = await getCampaignsData;
-        setaltShipmentsdata(allData);
+        setallShipmentsdata(allData);
       };
     }, []);
 

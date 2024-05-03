@@ -1,5 +1,6 @@
-import { Fot1, Fot2 } from "../_components/pages";
-export default () => {
+"use client";
+import { Fot1, Fot2 } from "./";
+const Footer = () => {
     const footernavs = [
         {
           href : "javascript:void()",
@@ -58,3 +59,5 @@ export default () => {
       </footer>
     );
 };
+
+export default Footer;

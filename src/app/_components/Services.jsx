@@ -1,7 +1,7 @@
-import images from "../Images/index";
+import images from "../_images/index";
 import Image from "next/image";
 
-export default ({
+const Services = ({
   setOpenProfile,
   SetCompleteModal,
   setGetModal,
@@ -61,3 +61,5 @@ export default ({
     </section>
   );
 };
+
+export default Services;

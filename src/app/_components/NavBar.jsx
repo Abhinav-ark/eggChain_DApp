@@ -1,8 +1,10 @@
+"use client";
 import { useEffect, useState, useContext } from 'react'
 
-import { TrackingContext } from "../Conetxt/TrackingContext" ;
-import { Navl, Nav2, Nav3 } from "../_components/index" ;
-export default () => {
+import { TrackingContext } from "../../../context/TrackingContext" ;
+import { Nav1, Nav2, Nav3 } from "./" ;
+
+const NavBar = () => {
     const [state, setState] = useState(false);
     const { currentUser, connectWallet } = useContext(TrackingContext) ;
     const navigation = [
@@ -82,6 +84,7 @@ export default () => {
     );
 };
 
+export default NavBar;
                         
                     
 

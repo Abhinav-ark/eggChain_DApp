@@ -10,7 +10,7 @@ const ContractABI = tracking.abi;
 
 // Fetch Smart Contract
 const fetchContract = (signerOrProvider) => {
-    new ethers.Contract(Contract, ContractABI, signerOrProvider);
+    new ethers.Contract(ContractAddress, ContractABI, signerOrProvider);
 }
 
 export const TrackingContext = React.createContext();

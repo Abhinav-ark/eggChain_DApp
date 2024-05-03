@@ -1,8 +1,9 @@
+"use client";
 import { useState } from 'react';
 
-export default ({ 
+const Form = ({ 
   setCreateShipmentModel,
-  CreateShipmentModel,
+  createShipmentModel,
   CreateShipment,
 
 }) => {
@@ -38,7 +39,7 @@ export default ({
           </div>
           <div className="max-w-sm mx-auto-3 py-3 space-y-3 text-center">
             <h4 className="text-lg font-medium text-gray-800">
-              Track Product, Create Shhipment
+              Track Product, Create Shipment
             </h4>
             <p className="text-[15px] text-gray-600">
               Create a new shipment
@@ -71,3 +72,5 @@ export default ({
     ""
   );
 };
+
+export default Form;
