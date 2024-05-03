@@ -85,8 +85,8 @@ contract Tracking {
         shipment.status = ShipmentStatus.DELIVERED;
         typeShipment.status = ShipmentStatus.DELIVERED;
 
-        shipment.deliveryTime = block.timestamp;
-        typeShipment.deliveryTime = block.timestamp;
+        shipment.deliveryTime = block.timestamp/1000 + shipment.pickupTime;
+        typeShipment.deliveryTime = block.timestamp/1000 + shipment.pickupTime;
 
         uint256 amount = shipment.price;
 

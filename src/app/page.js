@@ -27,13 +27,13 @@ const Page = () => {
 
     //STATE VARIABLES
 
-    const [createShipmentModel, setCreateShipmentModel] = useState(false);
+    const [createShipmentModal, setCreateShipmentModal] = useState(false);
     const [openProfile, setOpenProfile] = useState(false);
     const [startModal, setStartModal] = useState(false);
     const [completeModal, setCompleteModal] = useState(false);
-    const [getModel, setGetModel] = useState(false);
+    const [getModal, setGetModal] = useState(false);
     //DATA STATE VARIABLE
-    const [allShipmentsdata, setallShipmentsdata] = useState();
+    const [allShipmentsdata, setallShipmentsdata] = useState([]);
   
     useEffect(() => {
       const getCampaignsData = getAllShipment() ;
@@ -49,16 +49,16 @@ const Page = () => {
         <Services
           setOpenProfile={setOpenProfile}
           setCompleteModal={setCompleteModal}
-          setGetModel={setGetModel}
+          setGetModal={setGetModal}
           setStartModal={setStartModal}
         />
         <Table
-          setCreateShipmentModel={setCreateShipmentModel}
+          setCreateShipmentModal={setCreateShipmentModal}
           allShipmentsdata={allShipmentsdata}
         />
         <Form
-          createShipmentModel={createShipmentModel}
-          setCreateShipmentModel={setCreateShipmentModel}
+          createShipmentModal={createShipmentModal}
+          setCreateShipmentModal={setCreateShipmentModal}
           createShipment={createShipment}
         />
         <Profile
@@ -73,8 +73,8 @@ const Page = () => {
           completeShipment={completeShipment}
         />
         <GetShipment
-          getModel={getModel}
-          setGetModel={setGetModel}
+          getModal={getModal}
+          setGetModal={setGetModal}
           getShipment={getShipment}
         />
         <StartShipment

@@ -4,14 +4,14 @@ import React, {useState, useEffect} from 'react';
 import Web3Modal from 'web3modal';
 import { ethers } from 'ethers';
 
-import tracking from "../context/Tracking.json";
-const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+import tracking from "../artifacts/contracts/Tracking.sol/Tracking.json";
+const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 const ContractABI = tracking.abi;
 
 // Fetch Smart Contract
-const fetchContract = (signerOrProvider) => {
+const fetchContract = (signerOrProvider) => 
     new ethers.Contract(ContractAddress, ContractABI, signerOrProvider);
-}
+
 
 export const TrackingContext = React.createContext();
 
@@ -26,21 +26,25 @@ export const TrackingProvider = ({children}) => {
         const { receiver, pickupTime, distance, price} = items;
 
         try {
+            //console.log("ContractAdd: ",ContractAddress);
             const web3Modal = new Web3Modal();
             const connection = await web3Modal.connect();
             const provider = new ethers.providers.Web3Provider(connection);
             const signer = provider.getSigner();
             const contract = fetchContract(signer);
+            //console.log("test",receiver, pickupTime, distance, price);
             const createItem = await contract.createShipment(
                 receiver, 
                 new Date(pickupTime).getTime(),
-                distance,
+                distance*1,
                 ethers.utils.parseUnits(price, 18),
                 {
-                    value: ethers.utils.parseUnits(price, 18),
+                     value: ethers.utils.parseUnits(price, 18),
                 }
             );
+            
             await createItem.wait();
+            //console.log(createItem);
         }
         catch (error) {
             console.log("[ERROR-createShipment]: ",error);
@@ -111,7 +115,7 @@ export const TrackingProvider = ({children}) => {
     }
 
     const getShipment = async (index) => {
-        console.log(index * 1);
+        //console.log(index * 1);
         try {
             if (!window.ethereum) return "Install Metamask First";
             

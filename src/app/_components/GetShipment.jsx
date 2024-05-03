@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import Str1 from './SVG/Str1';
 
-const GetShipment = ({getModel, setGetModel, getShipment}) => {
+const GetShipment = ({getModal, setGetModal, getShipment}) => {
   
   const [index, setIndex] = useState(0);
   const [singleShipmentData, setSingleShipmentData] = useState();
@@ -12,28 +12,31 @@ const GetShipment = ({getModel, setGetModel, getShipment}) => {
     const shipmentData = await getShipment(index);
     setSingleShipmentData(shipmentData);
     console.log(shipmentData);
-  }
+  };
 
   const convertTime = (time) => {
-    const newTime = new Date(time)
-    const dataTime = new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
+    const newTime = new Date(time);
+    const dataTime = new Intl.DateTimeFormat('en-IN', {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute:"2-digit",
+      second:"2-digit"
     }).format(newTime);
 
     return dataTime;
   }
 
-  return getModel ? (
-    <div className="fixed insert-0 z-10 overflow-y-auto">
-      <div className="fixed insert-0 w-full h-full bg-black opacity-40" onClick={() => setGetModel(false)}>
+  return getModal ? (
+    <div className="fixed inset-0 z-10 overflow-y-auto">
+      <div className="fixed inset-0 w-full h-full bg-black opacity-40" onClick={() => setGetModal(false)}>
       </div>
       <div className="flex items-center min-h-screen px-4 py-8">
         <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
           <div className="flex justify-end">
             <button className='p-2 text-gray-400 rounded-md hover:bg-gray-100' 
-            onClick={() => setGetModel(false)}>
+            onClick={() => setGetModal(false)}>
               <Str1/>
             </button>
           </div>
@@ -53,7 +56,7 @@ const GetShipment = ({getModel, setGetModel, getShipment}) => {
                 />
               </div>
               <button 
-                onClick={getShipmentData}
+                onClick={() => getShipmentData()}
                 className="block w-full mt-3 py-3 px-4 font-medium text-sm text-center
                 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700
                 rounded-lg ring-offset-2 ring-indigo-600 focus:ring-2"

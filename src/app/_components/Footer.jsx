@@ -3,22 +3,22 @@ import { Fot1, Fot2 } from "./";
 const Footer = () => {
     const footernavs = [
         {
-          href : "javascript:void()",
+          href : "#",
           name: "Terms",
 
         },
         {
-          href : "javascript:void()",
+          href : "#",
           name: "License",
 
         },
         {
-          href : "javascript:void()",
+          href : "#",
           name: "Privacy",
 
         },
         {
-          href : "javascript:void()",
+          href : "#",
           name: "About us",
 
         },
@@ -40,20 +40,20 @@ const Footer = () => {
                 })}
               </ul>
             </div>
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <p className="text-gray-700 font-semibold">Get the app</p>
               <div className="flex items-center gap-3 mt-3 sm:block">
-                <a href="javascript:void()">
+                <a href="#">
                   <Fot1 />
                 </a>
-                <a href="javascript:void()" className="mt-0 block sm:mt-3">
+                <a href="#" className="mt-0 block sm:mt-3">
                   <Fot2 />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="mt-10 py-10 border-t md:text-center">
-            <p>&#169; 2024 Abhinav Ramki. All rights reserved</p>
+            <p>&#169;2024 Egg Chain. All rights reserved</p>
           </div>
         </div>
       </footer>

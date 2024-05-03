@@ -1,13 +1,18 @@
-export default ({ setCreateShipmentModel, allShipmentsdata }) => {
-  const converTime = (time) => {
+
+const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
+  
+  const convertTime = (time) => {
+    if (time == 0 ){
+      return 'Not Delivered'
+    }
     const newTime = new Date(time);
-    const dataTime = new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
+    const dataTime = new Intl.DateTimeFormat('en-UK', {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
     }).format(newTime);
     return dataTime;
-  };
+  }
 
   console.log(allShipmentsdata);
 
@@ -24,7 +29,7 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
           </p>
         </div>
         <div className="mt-3 md:mt-0">
-          <p onClick={() => setCreateShipmentModel(true)} className="inline-block px-4 py-2 text-white duration-150 font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 md:text-sm rounded-lg md:inline-flex" href="javascript:void(0)">
+          <p onClick={() => setCreateShipmentModal(true)} className="inline-block px-4 py-2 text-white duration-150 font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 md:text-sm rounded-lg md:inline-flex" href="#">
             Add Tracking
           </p>
         </div>
@@ -33,13 +38,14 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
         <table className="w-full table-auto text-sm text-left">
           <thead className="bg-gray-50 text-gray-600 font-medium border-b">
             <tr>
+              <th className="py-3 px-6">ID</th>
               <th className="py-3 px-6">Sender</th>
               <th className="py-3 px-6">Reciever</th>
               <th className="py-3 px-6">PickupTime</th>
               <th className="py-3 px-6">Distance</th>
               <th className="py-3 px-6">Price</th>
               <th className="py-3 px-6">Delivery Time</th>
-              <th className="py-3 px-6">Paid</th>
+              <th className="py-3 px-6">Payment</th>
               <th className="py-3 px-6">Status</th>
             </tr>
 
@@ -47,12 +53,13 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
           <tbody className="text-gray-600 divide-y">
             {allShipmentsdata?.map((shipment, idx) => (
               <tr key={idx}>
+                <td className="px-6 py-4 whitespace-nowrap">{idx}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.sender.slice(0, 15)}... </td>
-                <td className="px-6 py-4 whitespace-nowrap">{shipment.reciever.slice(0, 15)}... </td>
-                <td className="px-6 py-4 whitespace-nowrap">{converTime(shipment.pickupTime)}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{shipment.receiver.slice(0, 15)}... </td>
+                <td className="px-6 py-4 whitespace-nowrap">{convertTime(shipment.pickupTime)}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.distance} Km</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.price}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{shipment.deliveryTime}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{convertTime(shipment.deliveryTime)}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.isPaid ? 'Completed' : 'Not Complete'}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.status==0 ? "Pending" : shipment.status==1 ? "In_Transit" : "Delivered"}</td>
               </tr>
@@ -63,3 +70,5 @@ export default ({ setCreateShipmentModel, allShipmentsdata }) => {
     </div>
   );
 };
+
+export default Table;
