@@ -26,7 +26,7 @@ const Form = ({
   return createShipmentModal ? (
     <div className="fixed inset-0 overflow-y-auto">
       <div className="fixed inset-0 w-full h-full bg-black opacity-40" onClick={() => setCreateShipmentModal(false)}></div>
-      <div className="flex items-center min-h-screen px-4 py-8">
+      <div className="flex items-center justify-center min-h-screen px-4 py-8">
         <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
           <div className="flex justify-end">
             <button onClick={() => setCreateShipmentModal(false)} className="p-2 text-gray-400 rounded-md hover:bg-gray-100">
@@ -37,9 +37,9 @@ const Form = ({
               </svg>
             </button>
           </div>
-          <div className="max-w-sm mx-auto-3 py-3 space-y-3 text-center">
+          <div className="max-w-sm mx-auto-3 py-3 space-y-3 text-center items-center justify-center mx-auto">
             <h4 className="text-lg font-medium text-gray-800">
-              Track Product, Create Shipment
+              Create Egg Shipment
             </h4>
             <p className="text-[15px] text-gray-600">
               Create a new shipment

@@ -28,9 +28,9 @@ const Footer = () => {
         <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
           <div className="justify-between sm:flex">
             <div className="space-y-6">
-              <img src="https://www.floatui.com/logo.svg" className="w-32"/>
+              <img src="./eggChain_logo.png" className="w-32"/>
               <p className="max-w-md">
-                Float UI is a platform that allows you to create a website without writing a single line of code.
+                A Decentralized solution for tracking Egg supply chain.
               </p>
               <ul className="flex flex-wrap items-center gap-4 text-sm sm:text-base">
                 {footernavs.map((item, idx) => {
@@ -53,7 +53,7 @@ const Footer = () => {
             </div> */}
           </div>
           <div className="mt-10 py-10 border-t md:text-center">
-            <p>&#169;2024 Egg Chain. All rights reserved</p>
+            <p>&#169;2024 eggChain. All rights reserved</p>
           </div>
         </div>
       </footer>

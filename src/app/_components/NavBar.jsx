@@ -11,7 +11,7 @@ const NavBar = () => {
         { title: "Home ", path: "#" },
         { title: "Services", path: "#" },
         { title: "Contact Us", path: "#" },
-        { title: "Erc20", path: "#"},
+        { title: "Erc20", path: "https://ethereum.org/en/developers/docs/standards/tokens/erc-20/"},
     ];
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const NavBar = () => {
             <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
                 <div className="flex items-center justify-between py-5 md:block">
                     <a href="#">
-                        <img src="https://www.floatui.com/logo.svg"
+                        <img src="./eggChain_logo.png"
                             alt="Float UI Logo"
                             width={120}
                             height={50}

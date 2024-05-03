@@ -11,7 +11,7 @@ const Services = ({
 }) => {
   
   const team = [
-    images.compShipment,images.getShipment, images.startShipment,images.userProfile,images.shipCount,images.send
+    "Complete Shipment","Get Shipment","Start Shipment", "User Profile", "Shipment Count", "Send Shipment"
   ];
 
   const openModalBox = (text) => {
@@ -30,14 +30,14 @@ const Services = ({
 
   };
   return (
-    <section className="py-0 pb-1">
+    <section className="py-0 my-10 pb-1">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="mt-12">
           <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {team.map((item, index) => (
             <li key={index}>
-              <div onClick={() => openModalBox(index + 1)} className="w-full h-60 sm:h-52 md:h-56">
-                <Image src={item} alt="avatar" className="w-full h-full object-cover object-center shadow-md rounded-xl z-100"/>
+              <div onClick={() => openModalBox(index + 1)} className="flex w-full h-60 sm:h-52 md:h-56 bg-[#232324] rounded-3xl text-center items-center justify-center text-white hover:scale-105 transition-all">
+                <h2 className="font-bold text-2xl">{item}</h2>
               </div>
             </li>
           ))}        

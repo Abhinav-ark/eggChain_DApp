@@ -20,9 +20,9 @@ const GetShipment = ({getModal, setGetModal, getShipment}) => {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
-      hour: "2-digit",
-      minute:"2-digit",
-      second:"2-digit"
+      // hour: "2-digit",
+      // minute:"2-digit",
+      // second:"2-digit"
     }).format(newTime);
 
     return dataTime;
@@ -69,8 +69,8 @@ const GetShipment = ({getModal, setGetModal, getShipment}) => {
               <div className="text-left">
                 <p>Sender: {singleShipmentData.sender.slice(0,25)}...</p>
                 <p>Receiver: {singleShipmentData.receiver.slice(0,25)}...</p>
-                <p>PickupTime: {convertTime(singleShipmentData.pickupTime)}</p>
-                <p>DeliveryTime: {convertTime(singleShipmentData.deliveryTime)}</p>
+                <p>PickupDate: {convertTime(singleShipmentData.pickupTime)}</p>
+                <p>DeliveryDate: {convertTime(singleShipmentData.deliveryTime)}</p>
                 <p>Distance: {singleShipmentData.distance}</p>
                 <p>Price: {singleShipmentData.price}</p>
                 <p>Status: {singleShipmentData.status}</p>

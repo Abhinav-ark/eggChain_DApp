@@ -41,10 +41,10 @@ const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
               <th className="py-3 px-6">ID</th>
               <th className="py-3 px-6">Sender</th>
               <th className="py-3 px-6">Reciever</th>
-              <th className="py-3 px-6">PickupTime</th>
+              <th className="py-3 px-6">PickupDate</th>
               <th className="py-3 px-6">Distance</th>
               <th className="py-3 px-6">Price</th>
-              <th className="py-3 px-6">Delivery Time</th>
+              <th className="py-3 px-6">DeliveryDate</th>
               <th className="py-3 px-6">Payment</th>
               <th className="py-3 px-6">Status</th>
             </tr>
