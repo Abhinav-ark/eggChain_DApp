@@ -55,14 +55,14 @@ const Profile = ({openProfile, setOpenProfile, currentUser, getBalance, getShipm
 
               <div className='flex mt-4 space-x-3 md:mt-6'>
                 <a 
-                  href="#"
+                  href="./"
                   className="inline-flex items-center px-4 py-2 text-sm font-medium
                   text-center text-black rounded-lg border-2"
                 >
                   Balance: {balance}
                 </a>
                 <a 
-                  href="#"
+                  href="./"
                   className="inline-flex items-center px-4 py-2 text-sm font-medium
                   text-center text-black rounded-lg border-2"
                 >
