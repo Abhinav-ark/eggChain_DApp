@@ -54,6 +54,38 @@ export const TrackingProvider = ({children}) => {
         }
     }
 
+    const sendShipment = async (items) => {
+        console.log(items);
+        const { receiver,containerId, pickupTime, distance, price} = items;
+
+        try {
+            //console.log("ContractAdd: ",ContractAddress);
+            const web3Modal = new Web3Modal();
+            const connection = await web3Modal.connect();
+            const provider = new ethers.providers.Web3Provider(connection);
+            const signer = provider.getSigner();
+            const contract = fetchContract(signer);
+            //console.log("test",receiver, pickupTime, distance, price);
+            const createItem = await contract.sendShipment(
+                receiver, 
+                containerId,
+                new Date(pickupTime).getTime(),
+                distance*1,
+                ethers.utils.parseUnits(price, 18),
+                {
+                     value: ethers.utils.parseUnits(price, 18),
+                }
+            );
+            
+            await createItem.wait();
+
+            //console.log(createItem);
+        }
+        catch (error) {
+            console.log("[ERROR-createShipment]: ",error);
+        }
+    }
+
     const totalCount = async () => {
         try {
             const provider = new ethers.providers.JsonRpcProvider();
@@ -238,6 +270,7 @@ export const TrackingProvider = ({children}) => {
                 getShipmentsCount,
                 getBalance,
                 totalCount,
+                sendShipment,
                 DappName,
                 currentUser,
             }}

@@ -11,9 +11,11 @@ import {
   GetShipment,
   StartShipment,
   ShipmentCount,
+  SendShipment,
   } from "./_components";
   
 import { TrackingContext } from "../../context/TrackingContext";
+import { Sen } from "next/font/google";
 
 
 const Page = () => {
@@ -27,6 +29,7 @@ const Page = () => {
     getShipmentsCount,
     getBalance,
     totalCount,
+    sendShipment,
     } = useContext(TrackingContext);
 
     //STATE VARIABLES
@@ -37,6 +40,7 @@ const Page = () => {
     const [startModal, setStartModal] = useState(false);
     const [completeModal, setCompleteModal] = useState(false);
     const [getModal, setGetModal] = useState(false);
+    const [sendModal, setSendModal] = useState(false);
     //DATA STATE VARIABLE
     const [allShipmentsdata, setallShipmentsdata] = useState([]);
   
@@ -58,6 +62,7 @@ const Page = () => {
           setGetModal={setGetModal}
           setStartModal={setStartModal}
           setOpenCount={setOpenCount}
+          setSendModal={setSendModal}
         />
         <Table
           setCreateShipmentModal={setCreateShipmentModal}
@@ -94,6 +99,11 @@ const Page = () => {
           openCount={openCount}
           setOpenCount={setOpenCount}
           totalCount={totalCount}
+        />
+        <SendShipment 
+          sendModal={sendModal}
+          setSendModal={setSendModal}
+          sendShipment={sendShipment}
         />
       </>
     );

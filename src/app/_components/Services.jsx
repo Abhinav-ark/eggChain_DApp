@@ -9,6 +9,7 @@ const Services = ({
   setGetModal,
   setStartModal,
   setOpenCount,
+  setSendModal,
 }) => {
   
   const team = [
@@ -30,6 +31,10 @@ const Services = ({
     }
     else if (text === 5){
       setOpenCount(true);
+    }
+    else if (text === 6){
+      setSendModal(true);
+      //console.log("Send Shipment");
     }
 
   };
