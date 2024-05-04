@@ -14,8 +14,6 @@ const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
     return dataTime;
   }
 
-  console.log(allShipmentsdata);
-
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="items-start justify-between md:flex">
@@ -41,6 +39,7 @@ const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
               <th className="py-3 px-6">ID</th>
               <th className="py-3 px-6">Sender</th>
               <th className="py-3 px-6">Reciever</th>
+              <th className="py-3 px-6">ContainerId</th>
               <th className="py-3 px-6">PickupDate</th>
               <th className="py-3 px-6">Distance</th>
               <th className="py-3 px-6">Price</th>
@@ -54,8 +53,9 @@ const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
             {allShipmentsdata?.map((shipment, idx) => (
               <tr key={idx}>
                 <td className="px-6 py-4 whitespace-nowrap">{idx}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{shipment.sender.slice(0, 15)}... </td>
-                <td className="px-6 py-4 whitespace-nowrap">{shipment.receiver.slice(0, 15)}... </td>
+                <td className="px-6 py-4 whitespace-nowrap">{shipment.sender.slice(0, 10)}... </td>
+                <td className="px-6 py-4 whitespace-nowrap">{shipment.receiver.slice(0, 10)}... </td>
+                <td className="px-6 py-4 whitespace-nowrap">{shipment.containerId}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{convertTime(shipment.pickupTime)}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.distance} Km</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.price}</td>

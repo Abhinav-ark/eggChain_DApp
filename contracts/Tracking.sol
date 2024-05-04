@@ -10,6 +10,7 @@ contract Tracking {
     struct Shipment {
         address sender;
         address receiver;
+        string containerId;
         uint256 pickupTime;
         uint256 deliveryTime;
         uint256 distance;
@@ -26,6 +27,7 @@ contract Tracking {
     struct TypeShipment {
         address sender;
         address receiver;
+        string containerId;
         uint256 pickupTime;
         uint256 deliveryTime;
         uint256 distance;
@@ -36,7 +38,7 @@ contract Tracking {
 
     TypeShipment[] typeShipments; 
 
-    event ShipmentCreated(address indexed sender, address indexed receiver, uint256 pickupTime, uint256 distance, uint256 price);
+    event ShipmentCreated(address indexed sender, address indexed receiver, string containerId, uint256 pickupTime, uint256 distance, uint256 price);
     event ShipmentInTransit(address indexed sender, address indexed receiver, uint256 pickupTime);
     event ShipmentDelivered(address indexed sender, address indexed receiver, uint256 deliveryTime);
     event ShipmentPaid(address indexed sender, address indexed receiver, uint256 price);
@@ -46,17 +48,17 @@ contract Tracking {
         shipmentCount = 0;
     }
 
-    function createShipment(address _receiver, uint256 _pickupTime, uint256 _distance, uint256 _price) public payable {
+    function createShipment(address _receiver,string memory _containerId, uint256 _pickupTime, uint256 _distance, uint256 _price) public payable {
         require(msg.value == _price, "Payment must be equal to price");
 
-        Shipment memory shipment = Shipment(msg.sender, _receiver, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false);
+        Shipment memory shipment = Shipment(msg.sender, _receiver, _containerId, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false);
         
         shipments[msg.sender].push(shipment);
         shipmentCount++;
 
-        typeShipments.push(TypeShipment(msg.sender, _receiver, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false));
+        typeShipments.push(TypeShipment(msg.sender, _receiver, _containerId, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false));
 
-        emit ShipmentCreated(msg.sender, _receiver, _pickupTime, _distance, _price);
+        emit ShipmentCreated(msg.sender, _receiver, _containerId, _pickupTime, _distance, _price);
     }
 
 
@@ -99,9 +101,9 @@ contract Tracking {
         emit ShipmentPaid(_sender, _receiver, amount);
     }
 
-    function getShipment(address _sender, uint256 _index) public view returns (address, address, uint256, uint256, uint256, uint256, ShipmentStatus, bool) {
+    function getShipment(address _sender, uint256 _index) public view returns (address, address,string memory, uint256, uint256, uint256, uint256, ShipmentStatus, bool) {
         Shipment memory shipment = shipments[_sender][_index];
-        return (shipment.sender, shipment.receiver, shipment.pickupTime, shipment.deliveryTime, shipment.distance, shipment.price, shipment.status, shipment.isPaid);
+        return (shipment.sender, shipment.receiver, shipment.containerId, shipment.pickupTime, shipment.deliveryTime, shipment.distance, shipment.price, shipment.status, shipment.isPaid);
     }
 
     function getShipmentCount(address _sender) public view returns (uint256) {

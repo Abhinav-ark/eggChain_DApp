@@ -12,7 +12,8 @@ import {
   StartShipment,
   ShipmentCount,
   } from "./_components";
-  import { TrackingContext } from "../../context/TrackingContext";
+  
+import { TrackingContext } from "../../context/TrackingContext";
 
 
 const Page = () => {
@@ -44,6 +45,7 @@ const Page = () => {
       
       return async () => {
         const allData = await getCampaignsData;
+        console.log('all',allData);
         setallShipmentsdata(allData);
       };
     }, []);

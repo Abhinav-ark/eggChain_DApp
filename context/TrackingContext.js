@@ -24,7 +24,7 @@ export const TrackingProvider = ({children}) => {
 
     const createShipment = async (items) => {
         console.log(items);
-        const { receiver, pickupTime, distance, price} = items;
+        const { receiver,containerId, pickupTime, distance, price} = items;
 
         try {
             //console.log("ContractAdd: ",ContractAddress);
@@ -36,6 +36,7 @@ export const TrackingProvider = ({children}) => {
             //console.log("test",receiver, pickupTime, distance, price);
             const createItem = await contract.createShipment(
                 receiver, 
+                containerId,
                 new Date(pickupTime).getTime(),
                 distance*1,
                 ethers.utils.parseUnits(price, 18),
@@ -73,6 +74,7 @@ export const TrackingProvider = ({children}) => {
             const allShipments = shipments.map((shipment) => ({
                 sender: shipment.sender,
                 receiver: shipment.receiver,
+                containerId: shipment.containerId,
                 price: ethers.utils.formatEther(shipment.price.toString()),
                 pickupTime: shipment.pickupTime.toNumber(),
                 deliveryTime: shipment.deliveryTime.toNumber(),
