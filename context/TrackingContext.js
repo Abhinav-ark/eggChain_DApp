@@ -53,6 +53,17 @@ export const TrackingProvider = ({children}) => {
         }
     }
 
+    const totalCount = async () => {
+        try {
+            const provider = new ethers.providers.JsonRpcProvider();
+            const contract = fetchContract(provider);
+            const count = await contract.shipmentCount();
+            return count.toString();
+        } catch (error) {
+            console.log("[ERROR-totalCount]: ",error);
+        }
+    }
+
     const getAllShipment = async () => {
         try {
             const provider = new ethers.providers.JsonRpcProvider();
@@ -224,6 +235,7 @@ export const TrackingProvider = ({children}) => {
                 startShipment,
                 getShipmentsCount,
                 getBalance,
+                totalCount,
                 DappName,
                 currentUser,
             }}

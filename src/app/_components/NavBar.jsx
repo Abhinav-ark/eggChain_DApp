@@ -8,9 +8,9 @@ const NavBar = () => {
     const [state, setState] = useState(false);
     const { currentUser, connectWallet } = useContext(TrackingContext) ;
     const navigation = [
-        { title: "Home ", path: "#" },
-        { title: "Services", path: "#" },
-        { title: "Contact Us", path: "#" },
+        { title: "Home ", path: "/" },
+        // { title: "Services", path: "#" },
+        // { title: "Contact Us", path: "#" },
         { title: "Erc20", path: "https://ethereum.org/en/developers/docs/standards/tokens/erc-20/"},
     ];
 
@@ -33,7 +33,7 @@ const NavBar = () => {
                 <div className="flex items-center justify-between py-5 md:block">
                     <a href="#">
                         <img src="./eggChain_logo.png"
-                            alt="Float UI Logo"
+                            alt="eggChain Logo"
                             width={120}
                             height={50}
                         />
@@ -54,7 +54,7 @@ const NavBar = () => {
                 <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
                     {navigation.map((item, idx) => {
                         return (    
-                            <li key={idx} className="text-gray-700 hover:text-gray-090">
+                            <li key={idx} className="text-gray-700 hover:text-gray-900 hover:font-semibold transition-all">
                                 <a href={item.path} className="block">
                                 {item.title}
                                 </a>

@@ -8,6 +8,7 @@ const Services = ({
   setCompleteModal,
   setGetModal,
   setStartModal,
+  setOpenCount,
 }) => {
   
   const team = [
@@ -27,6 +28,9 @@ const Services = ({
     else if (text === 4){
       setOpenProfile(true);
     }
+    else if (text === 5){
+      setOpenCount(true);
+    }
 
   };
   return (
@@ -36,7 +40,7 @@ const Services = ({
           <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {team.map((item, index) => (
             <li key={index}>
-              <div onClick={() => openModalBox(index + 1)} className="flex w-full h-60 sm:h-52 md:h-56 bg-[#232324] rounded-3xl text-center items-center justify-center text-white hover:scale-105 transition-all">
+              <div onClick={() => openModalBox(index + 1)} className="flex w-full h-32 sm:h-20 md:h-32 bg-[#232324] rounded-3xl text-center items-center justify-center text-white hover:scale-105 transition-all">
                 <h2 className="font-bold text-2xl">{item}</h2>
               </div>
             </li>

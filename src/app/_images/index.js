@@ -4,7 +4,7 @@ import compShipment from "./3.jpg";
 import startShipment from "./4.jpg";
 import userProfile from "./5.jpg";
 import send from "./6.jpg";
-import avatar from "./creator9.png";
+import avatar from "./creator8.jpeg";
 
 export default {
   shipCount,

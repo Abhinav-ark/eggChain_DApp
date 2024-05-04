@@ -10,6 +10,7 @@ import {
   CompleteShipment,
   GetShipment,
   StartShipment,
+  ShipmentCount,
   } from "./_components";
   import { TrackingContext } from "../../context/TrackingContext";
 
@@ -24,12 +25,14 @@ const Page = () => {
     startShipment,
     getShipmentsCount,
     getBalance,
+    totalCount,
     } = useContext(TrackingContext);
 
     //STATE VARIABLES
 
     const [createShipmentModal, setCreateShipmentModal] = useState(false);
     const [openProfile, setOpenProfile] = useState(false);
+    const [openCount, setOpenCount] = useState(false);
     const [startModal, setStartModal] = useState(false);
     const [completeModal, setCompleteModal] = useState(false);
     const [getModal, setGetModal] = useState(false);
@@ -52,6 +55,7 @@ const Page = () => {
           setCompleteModal={setCompleteModal}
           setGetModal={setGetModal}
           setStartModal={setStartModal}
+          setOpenCount={setOpenCount}
         />
         <Table
           setCreateShipmentModal={setCreateShipmentModal}
@@ -83,6 +87,11 @@ const Page = () => {
           startModal={startModal}
           setStartModal={setStartModal}
           startShipment={startShipment}
+        />
+        <ShipmentCount
+          openCount={openCount}
+          setOpenCount={setOpenCount}
+          totalCount={totalCount}
         />
       </>
     );
