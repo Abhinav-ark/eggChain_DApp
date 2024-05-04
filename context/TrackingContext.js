@@ -2,10 +2,11 @@
 
 import React, {useState, useEffect} from 'react';
 import Web3Modal from 'web3modal';
+import Web3 from 'web3';
 import { ethers } from 'ethers';
 
 import tracking from "../artifacts/contracts/Tracking.sol/Tracking.json";
-const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+const ContractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 const ContractABI = tracking.abi;
 
 // Fetch Smart Contract
@@ -18,7 +19,7 @@ export const TrackingContext = React.createContext();
 export const TrackingProvider = ({children}) => {
     
     // State Variable 
-    const DappName = "Tracking App";
+    const DappName = "eggChain App";
     const [currentUser, setCurrentUser] = useState("");
 
     const createShipment = async (items) => {
@@ -44,6 +45,7 @@ export const TrackingProvider = ({children}) => {
             );
             
             await createItem.wait();
+
             //console.log(createItem);
         }
         catch (error) {
@@ -87,6 +89,22 @@ export const TrackingProvider = ({children}) => {
         } catch (error) {
             console.log("[ERROR-getShipmentsCount]: ",error);
         }
+    }
+
+    const getBalance = async () => {
+        try {
+            if(!window.ethereum) return "Install Metamask First";
+
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const web3 = new Web3(window.ethereum);
+            const accounts = await web3.eth.getAccounts();
+            const balance = await web3.eth.getBalance(accounts[0]);
+            console.log("Balance:", balance);
+            return ethers.utils.formatEther(balance);
+
+        } catch (error) {
+            console.log("[ERROR-getBalance]: ",error);
+        }   
     }
 
     const  completeShipment = async (completeShip) => {
@@ -205,6 +223,7 @@ export const TrackingProvider = ({children}) => {
                 getShipment,
                 startShipment,
                 getShipmentsCount,
+                getBalance,
                 DappName,
                 currentUser,
             }}

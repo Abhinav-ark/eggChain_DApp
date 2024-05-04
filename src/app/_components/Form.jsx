@@ -60,7 +60,10 @@ const Form = ({
               </div>
 
 
-              <button onClick={() => createItem()} className="block w-full py-3 px-4 mt-3 font-medium text-sm text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg ring-offset-2 ring-indigo-600 focus:ring-2">
+              <button onClick={() => createItem()} className="block w-full mt-3 py-3 px-4 font-medium text-sm text-center
+                text-black bg-[#f7ab05]/95 hover:bg-[#f7ab05]/85 active:bg-[#f7ab05]/100
+                rounded-lg ring-offset-2 ring-[#f7ab05] focus:ring-2"
+              >
                 Create Shipment
               </button>
             </form>

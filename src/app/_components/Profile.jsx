@@ -6,9 +6,10 @@ import Image from 'next/image';
 import images from '../_images';
 import Str1 from './SVG/Str1';
 
-const Profile = ({openProfile, setOpenProfile, currentUser, getShipmentsCount}) => {
+const Profile = ({openProfile, setOpenProfile, currentUser, getBalance, getShipmentsCount}) => {
   
   const [count, setCount] = useState(0);
+  const [balance, setBalance] = useState(0);
   
   useEffect(() => {
     const getShipmentsData = getShipmentsCount();
@@ -16,6 +17,8 @@ const Profile = ({openProfile, setOpenProfile, currentUser, getShipmentsCount}) 
     return async () => {
       const allData = await getShipmentsData;
       setCount(allData);
+      const balanceData = await getBalance();
+      setBalance(balanceData);
     };
   }, []);
 
@@ -42,11 +45,11 @@ const Profile = ({openProfile, setOpenProfile, currentUser, getShipmentsCount}) 
                 src={images.avatar}
                 alt='avatar'
               />
-              <h5 class='mb-1 text-xl font-medium text-gray-900 dark:text-white'>
+              <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>
                 Welcome Supplier
               </h5>
 
-              <span class="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-gray-500 dark:text-gray-400">
                 {currentUser}
               </span>
 
@@ -56,7 +59,7 @@ const Profile = ({openProfile, setOpenProfile, currentUser, getShipmentsCount}) 
                   className="inline-flex items-center px-4 py-2 text-sm font-medium
                   text-center text-black rounded-lg border-2"
                 >
-                  Balance: 20ETH (Static)
+                  Balance: {balance}
                 </a>
                 <a 
                   href="#"

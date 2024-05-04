@@ -23,6 +23,7 @@ const Page = () => {
     getShipment,
     startShipment,
     getShipmentsCount,
+    getBalance,
     } = useContext(TrackingContext);
 
     //STATE VARIABLES
@@ -65,6 +66,7 @@ const Page = () => {
           openProfile={openProfile}
           setOpenProfile={setOpenProfile}
           currentUser={currentUser}
+          getBalance={getBalance}
           getShipmentsCount={getShipmentsCount}
         />
         <CompleteShipment
