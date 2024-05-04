@@ -46,11 +46,12 @@ export const TrackingProvider = ({children}) => {
             );
             
             await createItem.wait();
-
+            return true;
             //console.log(createItem);
         }
         catch (error) {
             console.log("[ERROR-createShipment]: ",error);
+            return false;
         }
     }
 

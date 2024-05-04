@@ -1,5 +1,8 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Collapse from '@mui/material/Collapse';
 
 //INTERNAL IMPORT
 import {
@@ -43,7 +46,28 @@ const Page = () => {
     const [sendModal, setSendModal] = useState(false);
     //DATA STATE VARIABLE
     const [allShipmentsdata, setallShipmentsdata] = useState([]);
+
+    //SUCCESS AND ERRORS
+    const [successOpen, setSuccessOpen] = useState(false);
+    const [errorOpen, setErrorOpen] = useState(false);
+
+    // useEffect(() => {
+    //   if(createShipmentModal && openProfile && openCount && startModal && completeModal && getModal && sendModal){
+    //     setSuccessOpen(false);
+    //     setErrorOpen(false);        
+    //   }
+    // }, [createShipmentModal, openProfile, openCount, startModal, completeModal, getModal, sendModal]);
   
+    useEffect(() => {
+      const getCampaignsData = getAllShipment() ;
+      
+      return async () => {
+        const allData = await getCampaignsData;
+        console.log('all',allData);
+        setallShipmentsdata(allData);
+      };
+    }, [createShipmentModal, openProfile, openCount, startModal, completeModal, getModal, sendModal,getAllShipment]);
+
     useEffect(() => {
       const getCampaignsData = getAllShipment() ;
       
@@ -72,6 +96,8 @@ const Page = () => {
           createShipmentModal={createShipmentModal}
           setCreateShipmentModal={setCreateShipmentModal}
           createShipment={createShipment}
+          setSuccessOpen={setSuccessOpen}
+          setErrorOpen={setErrorOpen}
         />
         <Profile
           openProfile={openProfile}
@@ -105,6 +131,30 @@ const Page = () => {
           setSendModal={setSendModal}
           sendShipment={sendShipment}
         />
+        <div className={`fixed z-100 bottom-10 mx-auto items-center justify-center w-full h-30 ${successOpen ? 'flex' : 'hidden'}`}>
+          <div className="">
+            <Collapse in={successOpen}>
+              <Alert
+                severity="success"
+              >
+                <AlertTitle>Success</AlertTitle>
+                Transaction Successful
+              </Alert>
+            </Collapse>
+          </div>
+        </div>
+        <div className={`fixed z-100 bottom-10 flex mx-auto items-center justify-center w-full h-30`}>
+          <div className="">
+            <Collapse in={errorOpen}>
+              <Alert
+                severity="error"
+              >
+                <AlertTitle>Error</AlertTitle>
+                Transaction Failed
+              </Alert>
+            </Collapse>
+          </div>
+        </div>
       </>
     );
   }

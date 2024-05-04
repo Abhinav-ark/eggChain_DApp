@@ -5,7 +5,8 @@ const Form = ({
   setCreateShipmentModal,
   createShipmentModal,
   createShipment,
-
+  setSuccessOpen,
+  setErrorOpen,
 }) => {
   const [shipment, setShipment] = useState({
     receiver: '',
@@ -16,14 +17,40 @@ const Form = ({
 
   });
 
+  // const createItem = async () => {
+  //   try {
+  //     const res = await createShipment(shipment);
+  //     if (res) {
+  //       setSuccessOpen(true);
+  //       setCreateShipmentModal(false);
+  //     } else {
+  //       setErrorOpen(true);
+  //     }
+  //   } catch (error){
+  //     console.log("Wrong Creating item");
+  //   }
+  // };
+
   const createItem = async () => {
     try {
-      await createShipment(shipment);
-
+      const res = await createShipment(shipment);
+      if (res) {
+        setSuccessOpen(true);
+        setTimeout(() => {
+          setSuccessOpen(false);
+          setCreateShipmentModal(false);
+        }, 2000);
+      } else {
+        setErrorOpen(true);
+        setTimeout(() => {
+          setErrorOpen(false);
+        }, 2000);
+      }
     } catch (error){
       console.log("Wrong Creating item");
     }
   };
+
   return createShipmentModal ? (
     <div className="fixed inset-0 overflow-y-auto">
       <div className="fixed inset-0 w-full h-full bg-black opacity-40" onClick={() => setCreateShipmentModal(false)}></div>
