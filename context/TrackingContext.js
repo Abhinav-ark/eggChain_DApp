@@ -69,7 +69,7 @@ export const TrackingProvider = ({children}) => {
             const createItem = await contract.sendShipment(
                 receiver, 
                 containerId,
-                new Date(pickupTime).getTime(),
+                new Date(pickupTime).getTime(), 
                 distance*1,
                 ethers.utils.parseUnits(price, 18),
                 {
