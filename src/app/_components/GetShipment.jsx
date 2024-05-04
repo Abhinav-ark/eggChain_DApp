@@ -69,6 +69,7 @@ const GetShipment = ({getModal, setGetModal, getShipment}) => {
               <div className="text-left">
                 <p>Sender: {singleShipmentData.sender.slice(0,25)}...</p>
                 <p>Receiver: {singleShipmentData.receiver.slice(0,25)}...</p>
+                <p>ContainerId: {singleShipmentData.containerId}</p>
                 <p>PickupDate: {convertTime(singleShipmentData.pickupTime)}</p>
                 <p>DeliveryDate: {convertTime(singleShipmentData.deliveryTime)}</p>
                 <p>Distance: {singleShipmentData.distance}</p>

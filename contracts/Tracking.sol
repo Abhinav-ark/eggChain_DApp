@@ -21,6 +21,8 @@ contract Tracking {
 
     mapping(address => Shipment[]) public shipments;
 
+    address[] private senders;
+
     uint256 public shipmentCount;
 
     //another struct for display purpose
@@ -49,12 +51,33 @@ contract Tracking {
     }
 
     function createShipment(address _receiver,string memory _containerId, uint256 _pickupTime, uint256 _distance, uint256 _price) public payable {
-        require(msg.value == _price, "Payment must be equal to price");
+        bool containerIdExists = false;
+        for (uint256 i = 0; i < senders.length; i++) {
+            for (uint256 j = 0; j < shipments[senders[i]].length; j++) {
+                if(keccak256(abi.encodePacked(shipments[senders[i]][j].containerId)) == keccak256(abi.encodePacked(_containerId))){
+                    containerIdExists = true;
+                    break;
+                }
+            } 
+                
+        }
+        require(!containerIdExists, "The Container with given ID already exixts");
 
         Shipment memory shipment = Shipment(msg.sender, _receiver, _containerId, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false);
         
         shipments[msg.sender].push(shipment);
         shipmentCount++;
+
+        bool exists = false;
+        for (uint256 i = 0; i < senders.length; i++) {
+            if (senders[i] == msg.sender) {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) {
+            senders.push(msg.sender);
+        }
 
         typeShipments.push(TypeShipment(msg.sender, _receiver, _containerId, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false));
 
@@ -100,6 +123,47 @@ contract Tracking {
         emit ShipmentDelivered(_sender, _receiver, shipment.deliveryTime);
         emit ShipmentPaid(_sender, _receiver, amount);
     }
+
+    function sendShipment(address _newReceiver, string memory _containerId, uint256 _pickupTime, uint256 _distance, uint256 _price) public payable{
+        bool containerIdExists = false;
+        address _sender=msg.sender;
+        Shipment memory oldShipment;
+        // Check if provided container ID matches any existing container ID in the chain
+
+        for (uint256 i = 0; i < senders.length; i++) {
+            for (uint256 j = 0; j < shipments[senders[i]].length; j++) {
+                if(keccak256(abi.encodePacked(shipments[senders[i]][j].containerId)) == keccak256(abi.encodePacked(_containerId)) && shipments[senders[i]][j].receiver == _sender){
+                    containerIdExists = true;
+                    oldShipment= shipments[senders[i]][j];
+                    break;
+                }
+            } 
+                
+        }
+
+
+        require(containerIdExists, "You don't have access to send this container");
+        require(oldShipment.status == ShipmentStatus.DELIVERED, "Shipment is not received yet");
+        
+        
+        Shipment memory newShipment;
+        // Update shipment details
+        newShipment.sender = _sender;
+        newShipment.receiver = _newReceiver;
+        newShipment.containerId = _containerId;
+        newShipment.pickupTime = _pickupTime;
+        newShipment.distance = _distance;
+        newShipment.price = _price;
+
+        shipments[_sender].push(newShipment);
+        shipmentCount++;
+
+        typeShipments.push(TypeShipment(msg.sender, _newReceiver, _containerId, _pickupTime, 0, _distance, _price, ShipmentStatus.PENDING, false));
+
+        emit ShipmentCreated(msg.sender, _newReceiver, _containerId, _pickupTime, _distance, _price);
+    }
+
+
 
     function getShipment(address _sender, uint256 _index) public view returns (address, address,string memory, uint256, uint256, uint256, uint256, ShipmentStatus, bool) {
         Shipment memory shipment = shipments[_sender][_index];

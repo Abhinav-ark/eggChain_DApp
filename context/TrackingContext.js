@@ -82,7 +82,7 @@ export const TrackingProvider = ({children}) => {
             //console.log(createItem);
         }
         catch (error) {
-            console.log("[ERROR-createShipment]: ",error);
+            console.log("[ERROR-sendShipment]: ",error);
         }
     }
 
@@ -191,12 +191,13 @@ export const TrackingProvider = ({children}) => {
             const SingleShipment = {
                 sender: shipment[0],
                 receiver: shipment[1],
-                pickupTime: shipment[2].toNumber(),
-                deliveryTime: shipment[3].toNumber(),
-                distance: shipment[4].toNumber(),
-                price: ethers.utils.formatEther(shipment[5].toString()),
-                status: shipment[6],
-                isPaid: shipment[7],
+                containerId: shipment[2],
+                pickupTime: shipment[3].toNumber(),
+                deliveryTime: shipment[4].toNumber(),
+                distance: shipment[5].toNumber(),
+                price: ethers.utils.formatEther(shipment[6].toString()),
+                status: shipment[7],
+                isPaid: shipment[8],
             };
 
             return SingleShipment;

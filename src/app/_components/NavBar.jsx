@@ -31,7 +31,7 @@ const NavBar = () => {
         >
             <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
                 <div className="flex items-center justify-between py-5 md:block">
-                    <a href="#">
+                    <a href="./">
                         <img src="./eggChain_logo.png"
                             alt="eggChain Logo"
                             width={120}
