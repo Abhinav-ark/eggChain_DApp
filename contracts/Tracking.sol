@@ -50,7 +50,7 @@ contract Tracking {
         shipmentCount = 0;
     }
 
-    function createShipment(address _receiver,string memory _containerId, uint256 _pickupTime, uint256 _distance, uint256 _price) public payable {
+    function createShipment(address _receiver,string memory _containerId, uint256 _pickupTime, uint256 _distance, uint256 _price) public {
         bool containerIdExists = false;
         for (uint256 i = 0; i < senders.length; i++) {
             for (uint256 j = 0; j < shipments[senders[i]].length; j++) {
@@ -99,7 +99,7 @@ contract Tracking {
 
     }
 
-    function completeShipment(address _sender, address _receiver, uint256 _index) public {
+    function completeShipment(address _sender, address _receiver, uint256 _index) public payable {
         Shipment storage shipment = shipments[_sender][_index];
         TypeShipment storage typeShipment = typeShipments[_index];
 

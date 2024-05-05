@@ -1,14 +1,14 @@
 "use client";
 import React,{ useState, useEffect } from "react";
 
-const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
+const Table = ({ setCreateShipmentModal, allShipmentsdata, currentUser }) => {
   
   const [search, setSearch] = useState('');
   const [allShipments, setallShipments] = useState([...allShipmentsdata]);
 
-  // useEffect(() => {
-  //   setSearch('');
-  // }, []);
+  useEffect(() => {
+    console.log('all1',allShipmentsdata,"all1", currentUser);
+  }, []);
 
   useEffect(() => {
     const searchFilter = allShipmentsdata.filter((shipment) => {
@@ -72,7 +72,7 @@ const Table = ({ setCreateShipmentModal, allShipmentsdata }) => {
           <tbody className="text-gray-600 divide-y">
             {allShipments.map((shipment, idx) => (
               <tr key={idx}>
-                <td className="px-6 py-4 whitespace-nowrap">{idx}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{shipment.sender!==currentUser?idx:""}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.sender.slice(0, 10)}... </td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.receiver.slice(0, 10)}... </td>
                 <td className="px-6 py-4 whitespace-nowrap">{shipment.containerId}</td>

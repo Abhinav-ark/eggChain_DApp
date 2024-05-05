@@ -5,6 +5,8 @@ const SendShipment = ({
     sendModal,
     setSendModal,
     sendShipment,
+    setSuccessOpen,
+    setErrorOpen,
 }) => {
   const [shipment, setShipment] = useState({
     receiver: '',
@@ -17,7 +19,19 @@ const SendShipment = ({
 
   const createItem = async () => {
     try {
-      await sendShipment(shipment);
+      const res = await sendShipment(shipment);
+      if (res) {
+        setSuccessOpen(true);
+        setTimeout(() => {
+          setSuccessOpen(false);
+          setSendModal(false);
+        }, 2000);
+      } else {
+        setErrorOpen(true);
+        setTimeout(() => {
+          setErrorOpen(false);
+        }, 2000);
+      }
 
     } catch (error){
       console.log("Wrong Creating item");

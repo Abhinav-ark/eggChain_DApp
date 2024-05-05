@@ -40,9 +40,6 @@ export const TrackingProvider = ({children}) => {
                 new Date(pickupTime).getTime(),
                 distance*1,
                 ethers.utils.parseUnits(price, 18),
-                {
-                     value: ethers.utils.parseUnits(price, 18),
-                }
             );
             
             await createItem.wait();
@@ -79,11 +76,12 @@ export const TrackingProvider = ({children}) => {
             );
             
             await createItem.wait();
-
+            return true;
             //console.log(createItem);
         }
         catch (error) {
             console.log("[ERROR-sendShipment]: ",error);
+            return false;
         }
     }
 
@@ -168,13 +166,24 @@ export const TrackingProvider = ({children}) => {
             const signer = provider.getSigner();
             const contract = fetchContract(signer);
 
-            const transaction = await contract.completeShipment(accounts[0], receiver, index,{gasLimit: 300000});
+            const shipment = await contract.getShipment(accounts[0], index*1);
+
+            const transaction = await contract.completeShipment(
+                accounts[0],
+                receiver,
+                index,
+                {
+                    value: ethers.utils.parseUnits(ethers.utils.formatEther(shipment[6].toString()), 18),
+                }
+            );
 
             transaction.wait();
             console.log(transaction);
+            return true;
 
         } catch (error) {
             console.log("[ERROR-completeShipment]: ",error);
+            return false;
         }
     }
 
@@ -220,12 +229,13 @@ export const TrackingProvider = ({children}) => {
             const provider = new ethers.providers.Web3Provider(connection);
             const signer = provider.getSigner();
             const contract = fetchContract(signer);
-            const shipment = await contract.startShipment(accounts[0], receiver, index*1);
-
+            const shipment = await contract.startShipment(accounts[0], receiver, index*1,{gasLimit: 3000000});
             shipment.wait();
             console.log(shipment);
+            return true;
         } catch (error) {
             console.log("[ERROR-startShipment]: ",error);
+            return false;
         }
     };
 
@@ -273,6 +283,7 @@ export const TrackingProvider = ({children}) => {
                 getBalance,
                 totalCount,
                 sendShipment,
+                connectWallet,
                 DappName,
                 currentUser,
             }}

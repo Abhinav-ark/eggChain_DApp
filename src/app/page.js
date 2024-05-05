@@ -66,14 +66,14 @@ const Page = () => {
         console.log('all',allData);
         setallShipmentsdata(allData);
       };
-    }, [createShipmentModal, openProfile, openCount, startModal, completeModal, getModal, sendModal,getAllShipment]);
+    }, [successOpen, getAllShipment]);
 
     useEffect(() => {
       const getCampaignsData = getAllShipment() ;
       
       return async () => {
         const allData = await getCampaignsData;
-        console.log('all',allData);
+        console.log('all',allData[0].sender,"all", currentUser);
         setallShipmentsdata(allData);
       };
     }, []);
@@ -91,6 +91,7 @@ const Page = () => {
         <Table
           setCreateShipmentModal={setCreateShipmentModal}
           allShipmentsdata={allShipmentsdata}
+          currentUser={currentUser}
         />
         <Form
           createShipmentModal={createShipmentModal}
@@ -110,6 +111,8 @@ const Page = () => {
           completeModal={completeModal}
           setCompleteModal={setCompleteModal}
           completeShipment={completeShipment}
+          setSuccessOpen={setSuccessOpen}
+          setErrorOpen={setErrorOpen}
         />
         <GetShipment
           getModal={getModal}
@@ -120,6 +123,8 @@ const Page = () => {
           startModal={startModal}
           setStartModal={setStartModal}
           startShipment={startShipment}
+          setSuccessOpen={setSuccessOpen}
+          setErrorOpen={setErrorOpen}
         />
         <ShipmentCount
           openCount={openCount}
@@ -130,6 +135,8 @@ const Page = () => {
           sendModal={sendModal}
           setSendModal={setSendModal}
           sendShipment={sendShipment}
+          setSuccessOpen={setSuccessOpen}
+          setErrorOpen={setErrorOpen}
         />
         <div className={`fixed z-100 bottom-10 mx-auto items-center justify-center w-full h-30 ${successOpen ? 'flex' : 'hidden'}`}>
           <div className="">

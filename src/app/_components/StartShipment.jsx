@@ -3,12 +3,24 @@ import React from 'react';
 import { useState } from 'react';
 import Str1 from './SVG/Str1';
 
-const StartShipment = ({startModal, setStartModal, startShipment}) => {
+const StartShipment = ({startModal, setStartModal, startShipment, setSuccessOpen, setErrorOpen}) => {
   
   const [getProduct, setGetProduct] = useState({receiver:"", index:"",});
   
-  const startShipping = () => {
-    startShipment(getProduct);
+  const startShipping = async () => {
+    const res = await startShipment(getProduct);
+      if (res) {
+        setSuccessOpen(true);
+        setTimeout(() => {
+          setSuccessOpen(false);
+          setStartModal(false);
+        }, 2000);
+      } else {
+        setErrorOpen(true);
+        setTimeout(() => {
+          setErrorOpen(false);
+        }, 2000);
+      }
   }
 
   return startModal ? (

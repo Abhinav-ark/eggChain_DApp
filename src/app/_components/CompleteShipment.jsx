@@ -3,13 +3,27 @@ import React from 'react';
 import { useState } from 'react';
 import Str1 from './SVG/Str1';
 
-const CompleteShipment = ({completeModal, setCompleteModal, completeShipment}) => {
+const CompleteShipment = ({completeModal, setCompleteModal, completeShipment, setSuccessOpen,
+  setErrorOpen}) => {
   
   const [completeShip, setCompleteShip] = useState({reciver:"", index:"",});
 
-  const changeStatus = () => {
-    completeShipment(completeShip);
+  const changeStatus = async () => {
+    const res = await completeShipment(completeShip);
+      if (res) {
+        setSuccessOpen(true);
+        setTimeout(() => {
+          setSuccessOpen(false);
+          setCompleteModal(false);
+        }, 2000);
+      } else {
+        setErrorOpen(true);
+        setTimeout(() => {
+          setErrorOpen(false);
+        }, 2000);
+      }
   }
+
   return completeModal ?(
     <div className='fixed inset-0 z-10 overflow-y-auto'>
       <div 

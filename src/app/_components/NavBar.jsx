@@ -15,7 +15,7 @@ const NavBar = () => {
     ];
 
     useEffect(() => {
-        document.onclick =(e) => {
+        document.onclick = (e) => {
             const target = e.target;
             if (!target.closest(".menu-btn")) setState(false);
         };
