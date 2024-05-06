@@ -52,6 +52,61 @@ export const TrackingProvider = ({children}) => {
         }
     }
 
+    // const createShipments = async (shipments) => {
+    //         console.log(shipments);
+    //         const { receiver, containerId, pickupTime, distance, price } = shipment;
+    
+    //         try {
+    //             const web3Modal = new Web3Modal();
+    //             const connection = await web3Modal.connect();
+    //             const provider = new ethers.providers.Web3Provider(connection);
+    //             const signer = provider.getSigner();
+    //             const contract = fetchContract(signer);
+    
+    //             const createItem = await contract.createShipments(
+    //                 receiver, 
+    //                 containerId,
+    //                 new Date(pickupTime).getTime(),
+    //                 distance * 1,
+    //                 ethers.utils.parseUnits(price, 18),
+    //             );
+    
+    //             await createItem.wait();
+    //         } catch (error) {
+    //             console.log("[ERROR-createShipments]: ", error);
+    //             // Handle error as needed
+    //         }
+    // };
+
+    const createShipments = async (shipments) => {
+        const encodedData = shipments.map(shipment => {
+            return [
+                shipment.receiver,
+                shipment.containerId,
+                new Date(shipment.pickupTime).getTime(), // Assuming pickupTime is already in Ethereum's timestamp format
+                shipment.distance*1,
+                ethers.utils.parseUnits(shipment.price, 18)
+            ];
+        });
+    
+        try {
+            const web3Modal = new Web3Modal();
+            const connection = await web3Modal.connect();
+            const provider = new ethers.providers.Web3Provider(connection);
+            const signer = provider.getSigner();
+            const contract = fetchContract(signer);
+    
+            const createItems = await contract.createShipments(encodedData);
+            
+            await createItems.wait();
+            return true;
+        } catch (error) {
+            console.log("[ERROR-createShipments]: ", error);
+            return false;
+            // Handle error as needed
+        }
+    };
+
     const sendShipment = async (items) => {
         console.log(items);
         const { receiver,containerId, pickupTime, distance, price} = items;
@@ -275,6 +330,7 @@ export const TrackingProvider = ({children}) => {
             value={{
                 connectWallet,
                 createShipment,
+                createShipments,
                 getAllShipment,
                 completeShipment,
                 getShipment,

@@ -85,6 +85,59 @@ contract Tracking {
     }
 
 
+    struct ShipmentData {
+    address receiver;
+    string containerId;
+    uint256 pickupTime;
+    uint256 distance;
+    uint256 price;
+    }
+
+    function createShipments(ShipmentData[] memory shipmentsData) public {
+        for (uint256 k = 0; k < shipmentsData.length; k++) {
+            bool containerIdExists = false;
+            for (uint256 i = 0; i < senders.length; i++) {
+                for (uint256 j = 0; j < shipments[senders[i]].length; j++) {
+                    if (keccak256(abi.encodePacked(shipments[senders[i]][j].containerId)) == keccak256(abi.encodePacked(shipmentsData[k].containerId))) {
+                        containerIdExists = true;
+                        break;
+                    }
+                }
+                // Additional logic as needed 
+            }
+
+            // Check container ID exists before proceeding
+            require(!containerIdExists, "The Container with given ID already exists");
+
+            // Create Shipment struct using input data
+            Shipment memory shipment = Shipment(msg.sender, shipmentsData[k].receiver, shipmentsData[k].containerId, shipmentsData[k].pickupTime, 0, shipmentsData[k].distance, shipmentsData[k].price, ShipmentStatus.PENDING, false);
+
+            // Add new shipment to sender's shipments
+            shipments[msg.sender].push(shipment);
+            shipmentCount++;
+
+            // Check if sender already exists in list
+            bool exists = false;
+            for (uint256 i = 0; i < senders.length; i++) {
+                if (senders[i] == msg.sender) {
+                    exists = true;
+                    break;
+                }
+            }
+            // Add sender to senders list if not exists
+            if (!exists) {
+                senders.push(msg.sender);
+            }
+
+            // Add shipment to typeShipments list
+            typeShipments.push(TypeShipment(msg.sender, shipmentsData[k].receiver, shipmentsData[k].containerId, shipmentsData[k].pickupTime, 0, shipmentsData[k].distance, shipmentsData[k].price, ShipmentStatus.PENDING, false));
+
+            // Emit event for the created shipment
+            emit ShipmentCreated(msg.sender, shipmentsData[k].receiver, shipmentsData[k].containerId, shipmentsData[k].pickupTime, shipmentsData[k].distance, shipmentsData[k].price);
+        }
+    }
+
+
     function startShipment(address _sender, address _receiver, uint256 _index) public {
         Shipment storage shipment = shipments[_sender][_index];
         TypeShipment storage typeShipment = typeShipments[_index];

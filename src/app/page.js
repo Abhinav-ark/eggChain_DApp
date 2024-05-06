@@ -26,6 +26,7 @@ const Page = () => {
   const {
     currentUser,
     createShipment,
+    createShipments,
     getAllShipment,
     completeShipment,
     getShipment,
@@ -100,7 +101,7 @@ const Page = () => {
           setFileCreateShipmentModal={setFileCreateShipmentModal}
           fileCreateShipmentModal={fileCreateShipmentModal}
           setCreateShipmentModal={setCreateShipmentModal}
-          createShipment={createShipment}
+          createShipments={createShipments}
           setSuccessOpen={setSuccessOpen}
           setErrorOpen={setErrorOpen}
         />

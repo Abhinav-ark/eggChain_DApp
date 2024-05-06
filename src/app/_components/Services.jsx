@@ -1,7 +1,4 @@
 "use client";
-import images from "../_images";
-import Image from "next/image";
-
 
 const Services = ({
   setOpenProfile,

@@ -7,7 +7,7 @@ const FileCreateShipment = ({
   setFileCreateShipmentModal,
   fileCreateShipmentModal,
   setCreateShipmentModal,
-  createShipment,
+  createShipments,
   setSuccessOpen,
   setErrorOpen,
 }) => {
@@ -15,7 +15,7 @@ const FileCreateShipment = ({
     
   const createItem = async (content) => {
     try {
-      const res = await createShipment({receiver:content.receiver, containerId:content.containerId, pickupTime:content.pickupTime, distance:content.distance, price:content.price});
+      const res = await createShipments(content.map((element)=>({receiver:element.receiver, containerId:element.containerId, pickupTime:element.pickupTime, distance:element.distance, price:element.price})));
       if (res) {
         setSuccessOpen(true);
         setTimeout(() => {
@@ -29,7 +29,7 @@ const FileCreateShipment = ({
         }, 2000);
       }
     } catch (error){
-      console.log("Wrong Creating item");
+      console.log("Wrong Creating item",error);
     }
   };
 
