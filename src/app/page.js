@@ -51,13 +51,7 @@ const Page = () => {
     const [successOpen, setSuccessOpen] = useState(false);
     const [errorOpen, setErrorOpen] = useState(false);
 
-    // useEffect(() => {
-    //   if(createShipmentModal && openProfile && openCount && startModal && completeModal && getModal && sendModal){
-    //     setSuccessOpen(false);
-    //     setErrorOpen(false);        
-    //   }
-    // }, [createShipmentModal, openProfile, openCount, startModal, completeModal, getModal, sendModal]);
-  
+    
     useEffect(() => {
       const getCampaignsData = getAllShipment() ;
       
@@ -73,7 +67,6 @@ const Page = () => {
       
       return async () => {
         const allData = await getCampaignsData;
-        console.log('all',allData[0].sender,"all", currentUser);
         setallShipmentsdata(allData);
       };
     }, []);
