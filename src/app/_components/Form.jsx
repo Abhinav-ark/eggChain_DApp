@@ -4,6 +4,7 @@ import { useState } from 'react';
 const Form = ({ 
   setCreateShipmentModal,
   createShipmentModal,
+  setFileCreateShipmentModal,
   createShipment,
   setSuccessOpen,
   setErrorOpen,
@@ -96,6 +97,12 @@ const Form = ({
                 rounded-lg ring-offset-2 ring-[#f7ab05] focus:ring-2"
               >
                 Create Shipment
+              </button>
+              <button onClick={() => {setCreateShipmentModal(false); setFileCreateShipmentModal(true)}} className="block w-full mt-3 py-3 px-4 font-medium text-sm text-center
+                text-black bg-[#f7ab05]/95 hover:bg-[#f7ab05]/85 active:bg-[#f7ab05]/100
+                rounded-lg ring-offset-2 ring-[#f7ab05] focus:ring-2"
+              >
+                Use JSON File
               </button>
             </form>
           </div>

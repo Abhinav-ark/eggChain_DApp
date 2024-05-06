@@ -15,6 +15,7 @@ import {
   StartShipment,
   ShipmentCount,
   SendShipment,
+  FileCreateShipment,
   } from "./_components";
   
 import { TrackingContext } from "../../context/TrackingContext";
@@ -44,6 +45,7 @@ const Page = () => {
     const [completeModal, setCompleteModal] = useState(false);
     const [getModal, setGetModal] = useState(false);
     const [sendModal, setSendModal] = useState(false);
+    const [fileCreateShipmentModal, setFileCreateShipmentModal] = useState(false);
     //DATA STATE VARIABLE
     const [allShipmentsdata, setallShipmentsdata] = useState([]);
 
@@ -88,6 +90,15 @@ const Page = () => {
         />
         <Form
           createShipmentModal={createShipmentModal}
+          setCreateShipmentModal={setCreateShipmentModal}
+          createShipment={createShipment}
+          setSuccessOpen={setSuccessOpen}
+          setErrorOpen={setErrorOpen}
+          setFileCreateShipmentModal={setFileCreateShipmentModal}
+        />
+        <FileCreateShipment
+          setFileCreateShipmentModal={setFileCreateShipmentModal}
+          fileCreateShipmentModal={fileCreateShipmentModal}
           setCreateShipmentModal={setCreateShipmentModal}
           createShipment={createShipment}
           setSuccessOpen={setSuccessOpen}

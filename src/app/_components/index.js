@@ -1,7 +1,7 @@
 import Footer from "./Footer";
 import Table from "./Table";
 import NavBar from "./NavBar";
-import Form from "./FileCreateShipment";
+import Form from "./Form";
 import Services from "./Services";
 import Profile from "./Profile";
 import GetShipment from "./GetShipment";
@@ -9,6 +9,7 @@ import CompleteShipment from "./CompleteShipment";
 import StartShipment from "./StartShipment";
 import ShipmentCount from "./ShipmentCount";
 import SendShipment from "./SendShipment";
+import FileCreateShipment from "./FileCreateShipment";
 
 // SVG
 import Nav1 from "./SVG/Nav1";
@@ -30,6 +31,7 @@ export {
     StartShipment,
     ShipmentCount,
     SendShipment,
+    FileCreateShipment,
     Nav1,
     Nav2,
     Nav3,
