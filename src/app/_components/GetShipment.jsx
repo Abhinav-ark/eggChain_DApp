@@ -29,7 +29,7 @@ const GetShipment = ({getModal, setGetModal, getShipment}) => {
   }
 
   return getModal ? (
-    <div className="fixed inset-0 z-10 overflow-y-autom">
+    <div className="fixed inset-0 z-1 overflow-y-autom">
       <div className="fixed inset-0 w-full h-full bg-black opacity-40" onClick={() => setGetModal(false)}>
       </div>
       <div className="flex items-center min-h-screen px-4 py-8">

@@ -143,7 +143,7 @@ const Page = () => {
           setSuccessOpen={setSuccessOpen}
           setErrorOpen={setErrorOpen}
         />
-        <div className={`fixed z-100 bottom-10 mx-auto items-center justify-center w-full h-30 ${successOpen ? 'flex' : 'hidden'}`}>
+        <div className={`fixed z-1000 bottom-10 mx-auto items-center justify-center w-full h-30 ${successOpen ? 'flex' : 'hidden'}`}>
           <div className="">
             <Collapse in={successOpen}>
               <Alert
@@ -155,7 +155,7 @@ const Page = () => {
             </Collapse>
           </div>
         </div>
-        <div className={`fixed z-100 bottom-10 flex mx-auto items-center justify-center w-full h-30`}>
+        <div className={`fixed z-1000 bottom-10 flex mx-auto items-center justify-center w-full h-30`}>
           <div className="">
             <Collapse in={errorOpen}>
               <Alert

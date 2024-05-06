@@ -23,7 +23,7 @@ const Profile = ({openProfile, setOpenProfile, currentUser, getBalance, getShipm
   }, []);
 
   return openProfile ? (
-    <div className='fixed inset-0 z-10 overflow-y-auto'>
+    <div className='fixed inset-0 z-1 overflow-y-auto'>
       <div 
         className='fixed inset-0 w-full h-full bg-black opacity-40'
         onClick={() => setOpenProfile(false)}

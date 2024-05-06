@@ -25,7 +25,7 @@ const CompleteShipment = ({completeModal, setCompleteModal, completeShipment, se
   }
 
   return completeModal ?(
-    <div className='fixed inset-0 z-10 overflow-y-auto'>
+    <div className='fixed inset-0 z-1 overflow-y-auto'>
       <div 
         className='fixed inset-0 w-full h-full bg-black opacity-40'
         onClick={() => setCompleteModal(false)}
