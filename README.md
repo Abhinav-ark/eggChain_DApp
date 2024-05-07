@@ -97,6 +97,60 @@ Every transaction is public to the consumer, to view the entire history of every
 > [!WARNING]
 > If you transactions keep failing and you get a `MetaMask - RPC Error: Internal JSON-RPC error` on the console, It is most likely due to an Issue with Metamask. In that Case goto `Settings > Advanced` and click on `Clear activity tab data` and try again.
 
+## Interacting with the Decentralized Application
+
+<div align="center">
+    <img src="./Assets/Home.png" />
+</div>
+
+### Creating A Shipment
+
+<div align="center">
+    <img src="./Assets/create_1.png"/>
+</div>
+
+<div align="center">
+    <img src="./Assets/create_2.png"/>
+</div>
+
+<div align="center">
+    <img src="./Assets/create_success.png"/>
+</div>
+
+<div align="center">
+    <img src="./Assets/create_upload.png"/>
+</div>
+
+<div align="center">
+    <img src="./Assets/json_input.png"/>
+</div>
+
+<div align="center">
+    <img src="./Assets/table.png"/>
+</div>
+
+### Starting A Shipment
+<div align="center">
+    <img src="./Assets/start_shipment.png"/>
+</div>
+
+### Completing A Shipment
+<div align="center">
+    <img src="./Assets/complete_shipment.png"/>
+</div>
+
+### Sending A Received Shipment
+<div align="center">
+    <img src="./Assets/change_metamask_account.png"/>
+</div>
+<div align="center">
+    <img src="./Assets/send_shipment.png"/>
+</div>
+
+
+
+
+
 
 
 
