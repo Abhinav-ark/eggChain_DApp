@@ -104,19 +104,24 @@ Every transaction is public to the consumer, to view the entire history of every
 </div>
 
 ### Creating A Shipment
-
+Click on `Add Tracking` to open the Create Shipment Dialog Box, Fill the Details and Click on `Create Shipment` .
 <div align="center">
     <img src="./Assets/create_1.png"/>
 </div>
 
+Pay the Gas Fees to proceed with the Transaction 
 <div align="center">
     <img src="./Assets/create_2.png"/>
 </div>
 
+You will get a `Transaction Successful` Alert if the Transaction was successful.
 <div align="center">
     <img src="./Assets/create_success.png"/>
 </div>
 
+<br>
+
+You can Alternatively Create Multiple Shipments by uploading a JSON file in the prescribed format, Click on `Use JSON File` Button, In the `Create Shipment` Dialog Box. 
 <div align="center">
     <img src="./Assets/create_upload.png"/>
 </div>
@@ -125,6 +130,8 @@ Every transaction is public to the consumer, to view the entire history of every
     <img src="./Assets/json_input.png"/>
 </div>
 
+
+This the The Updated Transactions Table After Creating the Shipments.
 <div align="center">
     <img src="./Assets/table.png"/>
 </div>
