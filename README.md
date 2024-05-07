@@ -94,6 +94,9 @@ Every transaction is public to the consumer, to view the entire history of every
 
 - You can interact with the DApp now after logging in to an Account on the network.
 
+> [!WARNING]
+> If you transactions keep failing and you get a `MetaMask - RPC Error: Internal JSON-RPC error` on the console, It is most likely due to an Issue with Metamask. In that Case goto `Settings > Advanced` and click on `Clear activity tab data` and try again.
+
 
 
 
