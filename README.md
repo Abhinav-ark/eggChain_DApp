@@ -166,7 +166,7 @@ You can the the user's wallet balance and total no. of shipment made by the user
 </div>
 
 # How to Run the DApp
-- Either clone the repository (or) download the Source Code from the latest release.
+- Either clone the repository (or) download the Source Code from the [latest release](https://github.com/Abhinav-ark/eggChain_DApp/releases/tag/v1.0.0).
 - Make sure you have [`nodeJS`](https://nodejs.org/en/download) installed on your Computer (Node 20 LTS is recommended).
 - Run this command from the parent directory, to install all dependencies.
 ```bash
