@@ -18,7 +18,7 @@ const Table = ({ allShipmentsdata, currentUser }) => {
       return shipment.sender.toLowerCase().includes(search.toLowerCase()) || shipment.receiver.toLowerCase().includes(search.toLowerCase()) || shipment.containerId.toLowerCase().includes(search.toLowerCase());
     });
     setallShipments(searchFilter);
-    
+
   }, [search, allShipmentsdata]);
 
   const convertTime = (time) => {
@@ -38,7 +38,7 @@ const Table = ({ allShipmentsdata, currentUser }) => {
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="my-5 flex justify-between">
         <h1 className="font-bold my-auto text-2xl">All Shipments</h1>
-        <input type="text" placeholder="Search Containers (sender, receiver or containerId) ..." onChange={(e) => (setSearch(e.target.value))} className="w-1/3 pl-5 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-[#f7ab05] shadow-sm rounded-lg" />
+        <input type="text" placeholder="Search Containers (sender, receiver or containerId) ..." onChange={(e) => (setSearch(e.target.value))} className="w-2/5 pl-5 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-[#f7ab05] shadow-sm rounded-lg" />
       </div>
       <div className="shadow-sm border rounded-lg overflow-x-auto">
         <table className="w-full table-auto text-sm text-left">
