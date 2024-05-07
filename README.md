@@ -81,7 +81,18 @@ Every transaction is public to the consumer, to view the entire history of every
 
 - You can access the DApp from `http://localhost:3000` in your `Google Chrome` Browser.
 
-- Install `Metamask wallet` extension for Google Chrome. 
+- Install `Metamask wallet` extension for Google Chrome.
+
+- Login to your Metamask Wallet
+
+- Add and connect to the local Etherium network. `Settings > Networks > Add A Network > Add a network manually`
+<div align="center">
+    <img src="./Assets/add_network.png" width="400px" />
+</div>
+
+- Add any accounts to the Metamask Wallet from the 20 you got after running the hardhat node. Goto `Add account > Import Account`. Enter the private key of the account you want to import and click on Import.
+
+- You can interact with the DApp now after logging in to an Account on the network.
 
 
 
