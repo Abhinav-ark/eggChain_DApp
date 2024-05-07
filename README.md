@@ -34,13 +34,54 @@ Every transaction is public to the consumer, to view the entire history of every
 </div>
 
 ## Features
-- [x] Creation of Shipments, one at a time or multiple entries at a time using `JSON` file format .
+- [x] Creation of Shipments, one at a time or multiple entries at a time using `JSON` file format.
 - [x] Starting the Shipment from the Sender to Receiver.
 - [x] Receive and `Pay` in `Ether` for shipments at Receiver's End
 - [x] Wallet based `authentication` to ensure, only the owner of a shipment can perform operations on it.
 - [x] Looking up `Current Shipment Status & Details` By ID.
-- [x] `Search for shipments` based on containerId, sender address and receiver address
+- [x] `Search for shipments` based on containerId, sender address and receiver address.
 
+## How to Run the DApp
+- Either clone the repository (or) download the Source Code from the latest release.
+- Make sure you have [`nodeJS`](https://nodejs.org/en/download) installed on your Computer (Node 20 LTS is recommended).
+- Run this command from the parent directory, to install all dependencies.
+```bash
+> npm install --force
+```
+- Run a local hardhat node.
+```bash
+> npx hardhat node
+```
+- A `JSON RPC Server` is started in your localhost:8545 and you get 20 Accounts with 10000 Eth. in each account.
+
+<div align="center">
+    <img src="./Assets/hardhat_node.png" width="500px" />
+</div>
+
+- Create a new terminal instance and `deploy the smart contract` to the local network.
+```bash
+> npx hardhat ignition deploy ignition/modules/Tracking.js --network localhost
+```
+<div align="center">
+    <img src="./Assets/hardhat_ignition.png" width="500px" />
+</div>
+
+> [!IMPORTANT]
+> Run `npx hardhat clean` and `npx hardhat compile` to clean the artifacts of the previous smart contract and compile the new one, whenever you modify the smart contract.
+
+- Create a .env file to enter the contract address you got in the previous step as an Environmental Variable.
+<div align="center">
+    <img src="./Assets/env.png" width="500px" />
+</div>
+
+- Start a local NextJS development server.
+```bash
+> npm run dev
+```
+
+- You can access the DApp from `http://localhost:3000` in your `Google Chrome` Browser.
+
+- Install `Metamask wallet` extension for Google Chrome. 
 
 
 
