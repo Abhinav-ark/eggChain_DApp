@@ -15,6 +15,21 @@
 
 <br>
 
+<h2 align='center'>Tech Stack</h2>
+<div align='center'>
+    <img src="./Assets/hardhat.png" width='60px' title='Hardhat' style='margin-right:5px'/>
+    <img src="./Assets/etherium.png" width='45px' title='Etherium' style='margin-right:7px'/>
+    <img src="./Assets/web3js.jpg" width='55px' title='Web3.js' style='margin-right:10px'/>
+    <img src="./Assets/react.svg" title='React' style='margin-right:5px'/>
+    <img src="./Assets/next.svg" title='NextJs' style='margin-right:5px'/>
+    <img src="./Assets/mui.svg" title='MUI React' style='margin-right:5px'/>
+    <img src="./Assets/tailwind.svg" title='TailwindCSS' style='margin-right:5px'/>
+</div>
+
+
+
+<h2 align='center'>About</h2>
+
 EggChain is a Decentralized Application based on `Etherium` Blockchain to track egg shipments from the place of production to the final destination of sale.
 
 Every transaction is public to the consumer, to view the entire history of every single trasaction in the `supply chain`.
@@ -27,13 +42,8 @@ Every transaction is public to the consumer, to view the entire history of every
 - [x] Looking up `Current Shipment Status & Details` By ID.
 - [x] `Search for shipments` based on containerId, sender address and receiver address
 
-<div align='center'>
-    <img src="./Assets/hardhat.png" width='60px' title='Hardhat' style='margin-right:5px'/>
-    <img src="./Assets/etherium.png" width='45px' title='Etherium' style='margin-right:7px'/>
-    <img src="./Assets/web3js.jpg" width='55px' title='Web3.js' style='margin-right:10px'/>
-    <img src="./Assets/react.svg" title='React' style='margin-right:5px'>
-    <img src="./Assets/next.svg" title='NextJs' style='margin-right:5px'>
-</div>
+
+
 
 
 
