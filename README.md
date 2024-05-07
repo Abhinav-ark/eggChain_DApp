@@ -9,9 +9,9 @@
 
 <h1 align='center'>eggChain Decentralized App</h1>
 
-<div align='center'>
+<!--<div align='center'>
   <img src='./Assets/gif.gif' width='600px'/>
-</div>
+</div>-->
 
 <br>
 
@@ -226,8 +226,16 @@ You can the the user's wallet balance and total no. of shipment made by the user
 # Contributing
 Refer to The [Code of Conduct](https://github.com/Abhinav-ark/eggChain_DApp/blob/main/CODE_OF_CONDUCT.md) before making a pull request to the repository, posting on the discussions section or involing in any public activity related to this repository.
 
-# Licensing
-All code in this repository is Licensed Under `MIT License`, and is freely available for anyone to use or make changes.
-
 # Security Policy
 Refer [SECURITY.md](https://github.com/Abhinav-ark/eggChain_DApp/blob/main/SECURITY.md) for Security Policy.
+
+# Attributions
+- `Start Shipment Icon` : Product icons created by Freepik - Flaticon
+- `Send Shipment Icon` : Delivery icons created by Freepik - Flaticon
+- `Complete Shipment Icon` : Delivery icons created by Freepik - Flaticon
+- `Get Shipment Icon` : Search icons created by Maxim Basinski Premium - Flaticon
+- `User Profile Icon` : User icons created by Freepik - Flaticon
+- `Shipment Count Icon` : Counting icons created by smashingstocks - Flaticon
+
+# Licensing
+All code in this repository is Licensed Under `MIT License`, and is freely available for anyone to use or make changes.
