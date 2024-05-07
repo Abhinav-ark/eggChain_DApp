@@ -15,16 +15,15 @@ const GetShipment = ({getModal, setGetModal, getShipment}) => {
   };
 
   const convertTime = (time) => {
+    if (time == 0 ){
+      return 'Not Delivered'
+    }
     const newTime = new Date(time);
-    const dataTime = new Intl.DateTimeFormat('en-IN', {
+    const dataTime = new Intl.DateTimeFormat('en-UK', {
       year: "numeric",
       month: "2-digit",
-      day: "2-digit",
-      // hour: "2-digit",
-      // minute:"2-digit",
-      // second:"2-digit"
+      day: "2-digit"
     }).format(newTime);
-
     return dataTime;
   }
 
@@ -74,7 +73,7 @@ const GetShipment = ({getModal, setGetModal, getShipment}) => {
                 <p>DeliveryDate: {convertTime(singleShipmentData.deliveryTime)}</p>
                 <p>Distance: {singleShipmentData.distance}</p>
                 <p>Price: {singleShipmentData.price}</p>
-                <p>Status: {singleShipmentData.status}</p>
+                <p>Status: {singleShipmentData.status==0 ? "Pending" : singleShipmentData.status==1 ? "In_Transit" : "Delivered"}</p>
                 <p>Payment:{" "}{singleShipmentData.isPaid ? "Complete": "Not Complete"}</p>
               </div>
             )}

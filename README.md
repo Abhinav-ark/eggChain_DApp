@@ -26,6 +26,7 @@ Every transaction is public to the consumer, to view the entire history of every
     <img src="./Assets/hardhat.png" width='60px' title='Hardhat' style='margin-right:5px'/>
     <img src="./Assets/etherium.png" width='45px' title='Etherium' style='margin-right:7px'/>
     <img src="./Assets/web3js.jpg" width='55px' title='Web3.js' style='margin-right:10px'/>
+    <img src="./Assets/solidity.svg" title='Solidity' style='margin-right:5px'/>
     <img src="./Assets/react.svg" title='React' style='margin-right:5px'/>
     <img src="./Assets/next.svg" title='NextJs' style='margin-right:5px'/>
     <img src="./Assets/mui.svg" title='MUI React' style='margin-right:5px'/>
