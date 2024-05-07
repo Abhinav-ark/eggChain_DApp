@@ -17,14 +17,14 @@
 
 <!-- <h2 align='center'>About</h2> -->
 
-EggChain is a Decentralized Application based on `Etherium` Blockchain to track egg shipments from the place of production to the final destination of sale.
+EggChain is a Decentralized Application based on `Ethereum` Blockchain to track egg shipments from the place of production to the final destination of sale.
 
 Every transaction is public to the consumer, to view the entire history of every single trasaction in the `supply chain`.
 
 <h2 align='center'>Tech Stack</h2>
 <div align='center'>
     <img src="./Assets/hardhat.png" width='60px' title='Hardhat' style='margin-right:5px'/>
-    <img src="./Assets/etherium.png" width='45px' title='Etherium' style='margin-right:7px'/>
+    <img src="./Assets/etherium.png" width='45px' title='Ethereum' style='margin-right:7px'/>
     <img src="./Assets/web3js.jpg" width='55px' title='Web3.js' style='margin-right:10px'/>
     <img src="./Assets/solidity.svg" title='Solidity' style='margin-right:5px'/>
     <img src="./Assets/react.svg" title='React' style='margin-right:5px'/>
@@ -85,7 +85,7 @@ Every transaction is public to the consumer, to view the entire history of every
 
 - Login to your Metamask Wallet
 
-- Add and connect to the local Etherium network. `Settings > Networks > Add A Network > Add a network manually`
+- Add and connect to the local Ethereum network. `Settings > Networks > Add A Network > Add a network manually`
 <div align="center">
     <img src="./Assets/add_network.png" width="400px" />
 </div>
