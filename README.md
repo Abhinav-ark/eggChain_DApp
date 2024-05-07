@@ -147,8 +147,25 @@ Every transaction is public to the consumer, to view the entire history of every
     <img src="./Assets/send_shipment.png"/>
 </div>
 
+### Searching The History Of A Container
+<div align="center">
+    <img src="./Assets/search_container.png"/>
+</div>
 
+### Get Details Of A Specific Shipment
+<div align="center">
+    <img src="./Assets/getShipment.png"/>
+</div>
 
+### Total Shipments On the Supply Chain Network
+<div align="center">
+    <img src="./Assets/total_shipments.png"/>
+</div>
+
+### Profile (If logged in using wallet)
+<div align="center">
+    <img src="./Assets/profile.png"/>
+</div>
 
 
 
