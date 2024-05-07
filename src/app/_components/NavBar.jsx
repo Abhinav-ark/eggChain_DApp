@@ -51,7 +51,7 @@ const NavBar = () => {
                     state ? "block" : "hidden"
                 }`}
             >
-                <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+                <ul className="justify-center items-center text-md  space-y-6 md:flex md:space-x-6 md:space-y-0">
                     {navigation.map((item, idx) => {
                         return (    
                             <li key={idx} className="text-gray-700 hover:text-gray-900 hover:font-semibold transition-all">

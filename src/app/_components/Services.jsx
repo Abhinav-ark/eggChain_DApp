@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import images from "../_images"
 
 const Services = ({
   setOpenProfile,
@@ -10,7 +12,30 @@ const Services = ({
 }) => {
   
   const team = [
-    "Complete Shipment","Get Shipment","Start Shipment", "User Profile", "Shipment Count", "Send Shipment"
+    {
+      text:"Complete Shipment",
+      image: images.shipped
+    },
+    {
+      text:"Get Shipment",
+      image: images.search
+    },
+    {
+      text:"Start Shipment",
+      image: images.box
+    },    
+    {
+      text:"User Profile",
+      image: images.user
+    },
+    {
+      text:"Shipment Count",
+      image: images.counting
+    },
+    {
+      text:"Send Shipment",
+      image:images.delivery
+    }
   ];
 
   const openModalBox = (text) => {
@@ -42,8 +67,9 @@ const Services = ({
           <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {team.map((item, index) => (
             <li key={index}>
-              <div onClick={() => openModalBox(index + 1)} className="flex w-full h-32 sm:h-20 md:h-32 bg-[#232324] rounded-3xl text-center items-center justify-center text-white hover:scale-105 transition-all">
-                <h2 className="font-bold text-2xl">{item}</h2>
+              <div onClick={() => openModalBox(index + 1)} className="flex flex-wrap px-8 w-full h-32 sm:h-20 md:h-32 bg-white border border-black rounded-3xl text-center items-center justify-center text-black shadow-lg hover:scale-105 transition-all">
+                <Image src={item.image} alt='search' className="h-8 w-8"/>
+                <h2 className="pl-5 font-bold text-2xl">{item.text}</h2>
               </div>
             </li>
           ))}        

@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Form from "./Form";
 import Services from "./Services";
 import Profile from "./Profile";
+import CreateShipment from "./CreateShipment";
 import GetShipment from "./GetShipment";
 import CompleteShipment from "./CompleteShipment";
 import StartShipment from "./StartShipment";
@@ -24,6 +25,7 @@ export {
     Form,
     Services,
     Profile,
+    CreateShipment,
     GetShipment,
     CompleteShipment,
     StartShipment,

@@ -11,6 +11,7 @@ import {
   Services,
   Profile,
   CompleteShipment,
+  CreateShipment,
   GetShipment,
   StartShipment,
   ShipmentCount,
@@ -65,17 +66,20 @@ const Page = () => {
       };
     }, [successOpen, getAllShipment]);
 
-    useEffect(() => {
-      const getCampaignsData = getAllShipment() ;
+    // useEffect(() => {
+    //   const getCampaignsData = getAllShipment() ;
       
-      return async () => {
-        const allData = await getCampaignsData;
-        setallShipmentsdata(allData);
-      };
-    }, []);
+    //   return async () => {
+    //     const allData = await getCampaignsData;
+    //     setallShipmentsdata(allData);
+    //   };
+    // }, []);
 
     return (
       <>
+        <CreateShipment
+          setCreateShipmentModal={setCreateShipmentModal}
+        />
         <Services
           setOpenProfile={setOpenProfile}
           setCompleteModal={setCompleteModal}
@@ -85,7 +89,7 @@ const Page = () => {
           setSendModal={setSendModal}
         />
         <Table
-          setCreateShipmentModal={setCreateShipmentModal}
+         
           allShipmentsdata={allShipmentsdata}
           currentUser={currentUser}
         />

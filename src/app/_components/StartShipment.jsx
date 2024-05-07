@@ -50,7 +50,7 @@ const StartShipment = ({startModal, setStartModal, startShipment, setSuccessOpen
                   type='text'
                   placeholder='Receiver'
                   className='w-full pl-5 pr-3 py-2 text-gray-500 bg-transparent
-                  outline-none border focus:border-indigo-600 shadow-sm rounded-lg'
+                  outline-none border focus:border-[#f7ab05] shadow-sm rounded-lg'
                   onChange={(e) => setGetProduct({...getProduct, receiver:e.target.value})}
                 />
               </div>
@@ -59,7 +59,7 @@ const StartShipment = ({startModal, setStartModal, startShipment, setSuccessOpen
                   type='number'
                   placeholder='Id'
                   className='w-full pl-5 pr-3 py-2 text-gray-500 bg-transparent
-                  outline-none border focus:border-indigo-600 shadow-sm rounded-lg'
+                  outline-none border focus:border-[#f7ab05] shadow-sm rounded-lg'
                   onChange={(e) => setGetProduct({...getProduct, index:e.target.value})}
                 />
               </div>

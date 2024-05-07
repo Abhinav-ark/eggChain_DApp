@@ -17,6 +17,7 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-lottie": "^1.2.4",
     "web3": "^4.8.0",
     "web3modal": "^1.9.12"
   },

@@ -1,5 +1,8 @@
 "use client";
-import { Fot1, Fot2 } from "./";
+
+import Lottie from "react-lottie";
+import animationData from "../_lotties/egg";
+
 const Footer = () => {
     const footernavs = [
         {
@@ -23,6 +26,17 @@ const Footer = () => {
 
         },
     ];
+
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    };
+
+
     return (
       <footer className="pt-10">
         <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
@@ -39,6 +53,13 @@ const Footer = () => {
                   </li>
                 })}
               </ul>
+            </div>
+            <div className="flex items-center justify-end font-bold text-2xl">
+              <ul>
+                <li>Freshly</li>
+                <li>Delivered.</li>
+              </ul>
+              <Lottie options={defaultOptions} height={100} width={100} />
             </div>
             {/* <div className="mt-6">
               <p className="text-gray-700 font-semibold">Get the app</p>
