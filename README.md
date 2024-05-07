@@ -15,6 +15,12 @@
 
 <br>
 
+<!-- <h2 align='center'>About</h2> -->
+
+EggChain is a Decentralized Application based on `Etherium` Blockchain to track egg shipments from the place of production to the final destination of sale.
+
+Every transaction is public to the consumer, to view the entire history of every single trasaction in the `supply chain`.
+
 <h2 align='center'>Tech Stack</h2>
 <div align='center'>
     <img src="./Assets/hardhat.png" width='60px' title='Hardhat' style='margin-right:5px'/>
@@ -25,14 +31,6 @@
     <img src="./Assets/mui.svg" title='MUI React' style='margin-right:5px'/>
     <img src="./Assets/tailwind.svg" title='TailwindCSS' style='margin-right:5px'/>
 </div>
-
-
-
-<h2 align='center'>About</h2>
-
-EggChain is a Decentralized Application based on `Etherium` Blockchain to track egg shipments from the place of production to the final destination of sale.
-
-Every transaction is public to the consumer, to view the entire history of every single trasaction in the `supply chain`.
 
 ## Features
 - [x] Creation of Shipments, one at a time or multiple entries at a time using `JSON` file format .
